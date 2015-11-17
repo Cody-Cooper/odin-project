@@ -2,9 +2,10 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="shortcut icon" type="image/png" href="img/fav.png"/>
     <title>Google</title>
   </head>
-  <body>
+  <body class="margin_delete">
     <div id="wrapper">
       <div id="header">
         <ul class="nav">
@@ -17,17 +18,19 @@
         </ul>
       </div>
       <div id="body" class="center">
-        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" id="logo">
+        <div id="logo_wrap">
+          <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" id="logo">
+        </div>
         <div id="search_container">
           <input type="text" id="searchbar">
           <img src="img/speach.png" id="speach">
         </div>
         <button class="search_button" class="center">Google Search</button>
-        <button class="search_button" class="center">I'm feeling lucky</button>
+        <button class="search_button" class="center">I'm Feeling Lucky</button>
       </div>
       <div id="footer">
         <ul class="foot left">
-          <li><a href="#">Advertising</a></li>
+          <li class="margin_delete"><a href="#">Advertising</a></li>
           <li><a href="#">Business</a></li>
           <li><a href="#">About</a></li>
         </ul>
