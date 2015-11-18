@@ -1,0 +1,25 @@
+#header {
+  text-align: center;
+}
+
+#body {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.container {
+  margin: auto;
+}
+
+ul{
+  padding:0px;
+  margin:0px;
+}
+
+li {
+  display: inline-block;
+  list-style-type:none;
+  height:25px; width:25px;
+  border: 1px solid  black;
+  margin: 1px 1px;
+}
