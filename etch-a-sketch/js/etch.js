@@ -3,6 +3,7 @@ $(document).ready(function() {
   height = 16;
   width = 16;
 
+
 // --- RANDOM COLORS -----------------------------------------------------------
 
   // Generates a random rounded number between 0-255 for the rgb color codes
@@ -97,8 +98,15 @@ $(document).ready(function() {
 // --- CLEAR GRID BUTTON ------------------------------------------------------
 
   clearGrid = function() {
-    $('li').css('background-color', '#fff');
+    $('li').css('background-color', '#FAFAFA');
   };
+
+// --- MISC --------------------------------------------------------------------
+
+// Removes focus from button after release.
+  $('button').mouseup(function() {
+    $(this).blur();
+  });
 
 // --- BEGIN -------------------------------------------------------------------
 

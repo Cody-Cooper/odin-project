@@ -21,5 +21,47 @@ li {
   list-style-type:none;
   height:25px; width:25px;
   border: 1px solid  black;
-  margin: 1px 1px;
+  margin: 0 1px;
+}
+
+
+/* STYLES */
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #FAFAFA;
+}
+
+h1 {
+  font-weight: 500;
+}
+
+#new_grid,
+#clear {
+  font-family: 'Roboto', sans-serif;
+  background-color: #FAFAFA;
+  border: none;
+}
+
+
+#new_grid:hover,
+#new_grid:focus {
+  background-color: #4CAF50;
+  color: #FAFAFA;
+  outline: none;
+}
+
+#clear:hover,
+#clear:focus {
+  background-color: #F44336;
+  color: #FAFAFA;
+  outline: none;
+}
+
+#new_grid:active {
+  background-color: #388E3C;
+}
+
+#clear:active {
+  background-color: #D32F2F;
 }

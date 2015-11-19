@@ -4,14 +4,15 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/etch.js"></script>
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
     <title>jQuery Etch-A-Sketch</title>
   </head>
   <body>
 
     <div id="header">
       <h1>Etch a Sketch</h1>
-      <button onclick="newGrid()">New Grid</button>
-      <button onclick="clearGrid()">Clear</button>
+      <button onclick="newGrid()" id="new_grid">NEW GRID</button>
+      <button onclick="clearGrid()" id="clear">CLEAR</button>
     </div>
 
     <div id="body">
