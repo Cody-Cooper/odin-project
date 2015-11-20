@@ -122,7 +122,7 @@ $(document).ready(function() {
     $(this).css('background-color', colorArray[0]);
 
     $('#random_colors').click(function() {
-      $(this).css('background-color:active', colorArray[1]);
+      $(this).css('background-color', colorArray[1]);
     });
 
     $(this).mouseout(function() {
