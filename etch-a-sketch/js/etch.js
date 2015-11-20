@@ -13,21 +13,39 @@ $(document).ready(function() {
   };
 
  // Generates an RGB code using generateColor() to supply random numbers.
-  rgbGenerator = function() {
-    var r = generateColor(0, 255);
-    var g = generateColor(0, 255);
-    var b = generateColor(0, 255);
+  rgbGenerator = function(tint) {
+    if (!tint) {
+      var r = generateColor(0, 255);
+      var g = generateColor(0, 255);
+      var b = generateColor(0, 255);
 
-    rgbString = 'rgb(' + r + ', ' +
-    g + ', ' + b + ')';
+      rgbString = 'rgb(' + r + ', ' +
+      g + ', ' + b + ')';
 
-    return rgbString
+      return rgbString;
+    } else {
+      var r = generateColor(0, 255);
+      var g = generateColor(0, 255);
+      var b = generateColor(0, 255);
+
+      var rt = r * 0.25;
+      var gt = g * 0.25;
+      var bt = b * 0.25;
+
+      rgbString = 'rgb(' + r + ', ' +
+      g + ', ' + b + ')';
+
+      tintedString = 'rgb(' + rt + ', ' +
+      gt + ', ' + bt + ')';
+
+      return [rgbString, tintedString];
+    };
   };
 
   // Allows for squares to be painted using randmly chosen colors.
   sketch = function() {
     $("li").hover(function() {
-      $(this).css('background-color', rgbGenerator());
+      $(this).css('background-color', rgbGenerator(false));
       // console.log('(' + r + ',' + g + ',' + b + ')');
     });
   };
@@ -60,10 +78,10 @@ $(document).ready(function() {
 
       // Asks the user what they would like the new width to be
       widthInput = prompt('What would you like the new width to be?',
-      'Enter a number between 0 and 50.');
+      'Enter a number between 0 and 40.');
 
       // Checks that the user entered a number, and that it is in specified range.
-      if ($.isNumeric(widthInput) && widthInput > 0 && widthInput < 51) {
+      if ($.isNumeric(widthInput) && widthInput > 0 && widthInput < 41) {
         console.log('Previous height: ' + height);
         console.log('Previous width: ' + width);
         // Changes height and width to user values.
@@ -83,7 +101,7 @@ $(document).ready(function() {
 
 
       } else { // If user did not enter a valid value for width
-        alert('Please enter a number between 0 and 50!');
+        alert('Please enter a number between 0 and 40!');
         console.log('Invalid input');
       }
 
@@ -100,6 +118,25 @@ $(document).ready(function() {
   clearGrid = function() {
     $('li').css('background-color', '#FAFAFA');
   };
+
+// --- RANDOM COLORS BUTTON ----------------------------------------------------
+
+  $('#random_colors').hover(function(){
+
+    colorArray = rgbGenerator(true);
+
+    $(this).css('background-color', colorArray[0]);
+
+    $('#random_colors').click(function() {
+      $(this).css('background-color:active', colorArray[1]);
+    });
+
+    $(this).mouseout(function() {
+      $(this).css('background-color', '#FAFAFA')
+    });
+
+  });
+
 
 // --- MISC --------------------------------------------------------------------
 

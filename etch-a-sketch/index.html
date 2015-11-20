@@ -1,22 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/etch.js"></script>
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
     <title>jQuery Etch-A-Sketch</title>
   </head>
   <body>
 
-    <div id="header">
-      <h1>Etch a Sketch</h1>
-      <button onclick="newGrid()" id="new_grid">NEW GRID</button>
-      <button onclick="clearGrid()" id="clear">CLEAR</button>
+  <div id="wrapper">
+
+    <div id="menu">
+      <div id="title">
+        <h1>Etch a Sketch</h1>
+      </div>
+      <div id="fill_type">
+        <button id="random_colors">RANDOM COLORS</button>
+        <button id="monochrome" disabled>MONOCHROME</button>
+      </div>
+      <div id="options_header">
+        <hr>
+        <p>options</p>
+        <hr>
+      </div>
+      <div id="options">
+        <div id="size">
+          <input id="height" type="number" value="16" min="0" max="20">
+          <input id="width" type="number" value="16" min="0" max="50">
+        </div>
+        <div id="size_buttons">
+          <button onclick="newGrid()" id="new_grid">NEW GRID</button>          <button onclick="clearGrid()" id="clear">CLEAR</button>
+        </div>
+      </div>
     </div>
 
     <div id="body">
     </div>
+
+  </div>
+
   </body>
 
 </html>

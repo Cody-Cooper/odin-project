@@ -1,11 +1,65 @@
-#header {
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
+
+/* --- GENERAL STYLES --------------------------------------------------------*/
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #FAFAFA;
+  margin: none;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 500;
+}
+
+#wrapper {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  max-width: 1600px;
+  max-height: 640px;
+
+}
+
+#menu {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  -webkit-align-items: center;
+  align-items: center;
+  flex: 1;
+}
+
+#size_buttons,
+#size {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+#fill_type {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+}
+
+#title {
   text-align: center;
 }
 
 #body {
+  flex: 6;
+  -webkit-align-self: flex-start;
+  align-self: flex-start;
   margin-top: 20px;
-  text-align: center;
 }
+
+/* --- GRID ------------------------------------------------------------------*/
 
 .container {
   margin: auto;
@@ -25,22 +79,59 @@ li {
 }
 
 
-/* STYLES */
+/* --- BUTTONS ---------------------------------------------------------------*/
 
-body {
+
+
+/* Fill type buttons*/
+
+#random_colors {
   font-family: 'Roboto', sans-serif;
   background-color: #FAFAFA;
+  border: none;
+  margin: .3em;
 }
 
-h1 {
-  font-weight: 500;
+#random_colors:hover,
+#random_colors:focus,
+#random_colors:active {
+  outline: none;
 }
+
+#monochrome {
+  font-family: 'Roboto', sans-serif;
+  background-color: #FAFAFA;
+  color: #BDBDBD;
+  border: none;
+  margin: .3em;
+}
+
+/*#monochrome:hover,
+#monochrome:focus {
+  background-color: #616161;
+  color: #BDBDBD;
+  outline: none;
+}*/
+
+
+
+/* Size input */
+
+#height,
+#width {
+  width: 5.2em;
+  margin: .3em;
+}
+
+/* Options buttons */
 
 #new_grid,
 #clear {
   font-family: 'Roboto', sans-serif;
   background-color: #FAFAFA;
   border: none;
+  width: 5.5em;
+  margin: .3em 0;
 }
 
 
