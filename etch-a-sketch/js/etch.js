@@ -1,7 +1,10 @@
 $(document).ready(function() {
 
-  height = 16;
-  width = 16;
+  height = $('#height').val();
+  width = $('#width').val();
+
+  console.log(height);
+  console.log(width);
 
 
 // --- RANDOM COLORS -----------------------------------------------------------
@@ -68,25 +71,16 @@ $(document).ready(function() {
 
   // Adds function to the new grid button
   newGrid = function() {
+    console.log('Previous height: ' + height);
+    console.log('Previous width: ' + width);
 
-    // Asks the user what they would like the new height to be
-    heightInput = prompt('What would you like the new height to be?',
-    'Enter a number between 0 and 20.');
+    // Gets values from height/width input boxes
+    height = $('#height').val();
+    width = $('#width').val();
 
-    // Checks that the user entered a number, and that it is in specified range
-    if ($.isNumeric(heightInput) && heightInput > 0 && heightInput < 21) {
-
-      // Asks the user what they would like the new width to be
-      widthInput = prompt('What would you like the new width to be?',
-      'Enter a number between 0 and 40.');
-
-      // Checks that the user entered a number, and that it is in specified range.
-      if ($.isNumeric(widthInput) && widthInput > 0 && widthInput < 41) {
-        console.log('Previous height: ' + height);
-        console.log('Previous width: ' + width);
-        // Changes height and width to user values.
-        height = heightInput;
-        width = widthInput;
+    // Checks that the numbers are in the specified range
+    if (height > 0 && height < 21) {
+      if (width > 0 && width < 41) {
 
         // Removes previous container
         console.log('Removing previous container...');
