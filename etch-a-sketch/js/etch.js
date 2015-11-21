@@ -3,8 +3,10 @@ $(document).ready(function() {
   height = $('#height').val();
   width = $('#width').val();
 
-  console.log(height);
-  console.log(width);
+  fillType = 1;
+
+  randomColorString = '';
+  randomTintedString = '';
 
 
 // --- RANDOM COLORS -----------------------------------------------------------
@@ -31,9 +33,9 @@ $(document).ready(function() {
       var g = generateColor(0, 255);
       var b = generateColor(0, 255);
 
-      var rt = r * 0.25;
-      var gt = g * 0.25;
-      var bt = b * 0.25;
+      var rt = Math.round(r * 0.75);
+      var gt = Math.round(g * 0.75);
+      var bt = Math.round(b * 0.75);
 
       rgbString = 'rgb(' + r + ', ' +
       g + ', ' + b + ')';
@@ -45,13 +47,19 @@ $(document).ready(function() {
     };
   };
 
-  // Allows for squares to be painted using randmly chosen colors.
+    // Allows for squares to be painted using randmly chosen colors.
   sketch = function() {
-    $("li").hover(function() {
-      $(this).css('background-color', rgbGenerator(false));
-      // console.log('(' + r + ',' + g + ',' + b + ')');
-    });
+    if (fillType === 1) {
+      $("li").hover(function() {
+        $(this).css('background-color', rgbGenerator(false));
+        // console.log('(' + r + ',' + g + ',' + b + ')');
+      });
+    } else {
+      alert('How did you do this?');
+    };
   };
+
+
 
 // --- GRID GENERATION ---------------------------------------------------------
 
@@ -119,18 +127,30 @@ $(document).ready(function() {
 
     colorArray = rgbGenerator(true);
 
-    $(this).css('background-color', colorArray[0]);
+    randomColorString = colorArray[0];
+    randomTintedString = colorArray[1];
 
-    $('#random_colors').click(function() {
-      $(this).css('background-color', colorArray[1]);
-    });
+    $(this).css('background-color', randomColorString);
+    $(this).css('color', '#FAFAFA');
+
 
     $(this).mouseout(function() {
       $(this).css('background-color', '#FAFAFA')
+      $(this).css('color', '');
+
     });
 
   });
 
+  $('#random_colors').mousedown(function() {
+     $(this).css('background-color', randomTintedString);
+     fillType = 1;
+     console.log('New fill type: ' + fillType);
+   });
+
+   $('#random_colors').mouseup(function() {
+     $(this).css('background-color', randomColorString);
+   });
 
 // --- MISC --------------------------------------------------------------------
 
