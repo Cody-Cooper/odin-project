@@ -106,20 +106,18 @@ li {
   outline: none;
 }
 
+
 #monochrome {
   font-family: 'Roboto', sans-serif;
   background-color: #FAFAFA;
-  color: #BDBDBD;
   border: none;
   margin: .3em;
 }
 
-/*#monochrome:hover,
+#monochrome:hover,
 #monochrome:focus {
-  background-color: #616161;
-  color: #BDBDBD;
   outline: none;
-}*/
+}
 
 
 

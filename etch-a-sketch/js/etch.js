@@ -47,15 +47,15 @@ $(document).ready(function() {
     };
   };
 
-    // Allows for squares to be painted using randmly chosen colors.
+    // Allows for squares to be painted using randomly chosen colors.
   sketch = function() {
     if (fillType === 1) {
       $("li").hover(function() {
         $(this).css('background-color', rgbGenerator(false));
         // console.log('(' + r + ',' + g + ',' + b + ')');
       });
-    } else {
-      alert('How did you do this?');
+    } else if (fillType === 2) {
+      alert('Feature not yet implemented. Sorry!');
     };
   };
 
@@ -123,7 +123,7 @@ $(document).ready(function() {
 
 // --- RANDOM COLORS BUTTON ----------------------------------------------------
 
-  $('#random_colors').hover(function(){
+  $('#random_colors').hover(function() {
 
     colorArray = rgbGenerator(true);
 
@@ -146,11 +146,35 @@ $(document).ready(function() {
      $(this).css('background-color', randomTintedString);
      fillType = 1;
      console.log('New fill type: ' + fillType);
+     sketch();
    });
 
    $('#random_colors').mouseup(function() {
      $(this).css('background-color', randomColorString);
    });
+
+// --- MONOCHROME BUTTON -------------------------------------------------------
+
+  $('#monochrome').hover(function() {
+    $(this).css('background-color', '#616161');
+    $(this).css('color', '#FAFAFA');
+  });
+
+  $('#monochrome').mousedown(function() {
+    $(this).css('background-color', '#212121');
+    fillType = 2;
+    console.log('New fill type: ' + fillType);
+    sketch();
+  });
+
+  $('#monochrome').mouseup(function() {
+    $(this).css('background-color', '#616161');
+  });
+
+  $('#monochrome').mouseout(function() {
+    $(this).css('background-color', '#FAFAFA');
+    $(this).css('color', '');
+  });
 
 // --- MISC --------------------------------------------------------------------
 
