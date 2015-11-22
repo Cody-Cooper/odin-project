@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+  // Setting default values
+
   height = $('#height').val();
   width = $('#width').val();
 
@@ -12,27 +14,27 @@ $(document).ready(function() {
 // --- RANDOM COLORS -----------------------------------------------------------
 
   // Generates a random rounded number between 0-255 for the rgb color codes
-  generateColor = function(min, max) {
-    var randomNumber = Math.random() * (max - min) + min;
+  generateColor = function() {
+    var randomNumber = Math.random() * (255 - 0);
     return Math.round(randomNumber)
   };
 
- // Generates an RGB code using generateColor() to supply random numbers.
+ // Generates an RGB string using generateColor() to supply random numbers.
   rgbGenerator = function(tint) {
     if (!tint) {
-      var r = generateColor(0, 255);
-      var g = generateColor(0, 255);
-      var b = generateColor(0, 255);
+      var r = generateColor();
+      var g = generateColor();
+      var b = generateColor();
 
       rgbString = 'rgb(' + r + ', ' +
       g + ', ' + b + ')';
 
       return rgbString;
     } else {
-      var r = generateColor(0, 255);
-      var g = generateColor(0, 255);
-      var b = generateColor(0, 255);
-
+      var r = generateColor();
+      var g = generateColor();
+      var b = generateColor();
+        // Darkens the colors
       var rt = Math.round(r * 0.75);
       var gt = Math.round(g * 0.75);
       var bt = Math.round(b * 0.75);
@@ -47,16 +49,21 @@ $(document).ready(function() {
     };
   };
 
-    // Allows for squares to be painted using randomly chosen colors.
+// --- FILL FUNCTIONALITY ------------------------------------------------------
+
+    // A function that allows user to fill squares on the grid with color.
   sketch = function() {
-    if (fillType === 1) {
-      $("li").hover(function() {
+    if (fillType === 1) { // If Random Colors is chosen
+      $('li').hover(function() {
         $(this).css('background-color', rgbGenerator(false));
-        // console.log('(' + r + ',' + g + ',' + b + ')');
       });
-    } else if (fillType === 2) {
-      alert('Feature not yet implemented. Sorry!');
-    };
+    } else if (fillType === 2) { // If Monochrome is chosen
+      $('li').hover(function() {
+        $(this).css('background-color', '#757575');
+      });
+    } else {
+      alert('Nice try!');
+    }
   };
 
 
@@ -124,16 +131,17 @@ $(document).ready(function() {
 // --- RANDOM COLORS BUTTON ----------------------------------------------------
 
   $('#random_colors').hover(function() {
-
+      // Generates an array containing two RGB strings and assigns them to
+      // a variable.
     colorArray = rgbGenerator(true);
-
     randomColorString = colorArray[0];
     randomTintedString = colorArray[1];
 
+      // Applies a random color to the button when user hovers over it.
     $(this).css('background-color', randomColorString);
     $(this).css('color', '#FAFAFA');
 
-
+      // Returns button to default value when the users mouse leaves the button.
     $(this).mouseout(function() {
       $(this).css('background-color', '#FAFAFA')
       $(this).css('color', '');
@@ -142,35 +150,49 @@ $(document).ready(function() {
 
   });
 
+    // Applies a tinted color to the button when the user clicks.
   $('#random_colors').mousedown(function() {
      $(this).css('background-color', randomTintedString);
+     // Clears all previous colors on grid if the user changed fill types.
+     if (fillType != 1) {
+       clearGrid();
+     };
      fillType = 1;
      console.log('New fill type: ' + fillType);
      sketch();
    });
 
+    // Un-tints the button after user releases mouse.
    $('#random_colors').mouseup(function() {
      $(this).css('background-color', randomColorString);
    });
 
 // --- MONOCHROME BUTTON -------------------------------------------------------
 
+    // Applies color to the button when user hovers over it.
   $('#monochrome').hover(function() {
     $(this).css('background-color', '#616161');
     $(this).css('color', '#FAFAFA');
   });
 
+    // Tints button when the user clicks the button.
   $('#monochrome').mousedown(function() {
     $(this).css('background-color', '#212121');
+    // Clears all previous colors on grid if the user changed fill types.
+    if (fillType != 2) {
+      clearGrid();
+    };
     fillType = 2;
     console.log('New fill type: ' + fillType);
     sketch();
   });
 
+  // Un-tints button when user releases mouse.
   $('#monochrome').mouseup(function() {
     $(this).css('background-color', '#616161');
   });
 
+  // Returns button to default color after the user's mouse leaves the button.
   $('#monochrome').mouseout(function() {
     $(this).css('background-color', '#FAFAFA');
     $(this).css('color', '');

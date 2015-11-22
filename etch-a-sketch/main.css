@@ -1,10 +1,52 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
 
+/* --- GENERAL STYLE CLASSES -------------------------------------------------*/
+
+.no_outline {
+  outline: none;
+}
+
+.no_border {
+  border: none;
+}
+
+.flex {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flex_start {
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+}
+
+.column_nowrap {
+  -webkit-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+}
+
+.center_align {
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.default_color {
+  background-color: #FAFAFA;
+}
+
+
+.tb_margin { /* Top bottom margin */
+  margin: .3em 0;
+}
+
+.tblr_margin { /* Top bottom left right margin */
+  margin: .3em;
+}
+
 /* --- GENERAL STYLES --------------------------------------------------------*/
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #FAFAFA;
   margin: none;
 }
 
@@ -14,57 +56,19 @@ h1 {
 }
 
 #wrapper {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-align-items: flex-start;
-  align-items: flex-start;
   max-width: 1600px;
   max-height: 640px;
-
-}
-
-#menu {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: column nowrap;
-  flex-flow: column nowrap;
-  -webkit-align-items: center;
-  align-items: center;
-  flex: 1;
-}
-
-#size_buttons,
-#size {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  justify-content: center;
-}
-
-#fill_type {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: column nowrap;
-  flex-flow: column nowrap;
-}
-
-#title {
-  text-align: center;
 }
 
 #body {
   flex: 6;
-  -webkit-align-self: flex-start;
-  align-self: flex-start;
   margin-top: 20px;
 }
 
-hr {
-  margin: .3em 0;
-}
+/* --- MENU ------------------------------------------------------------------*/
 
-#options_header p {
-  margin: .3em 0;
+#menu {
+  flex: 1;
 }
 
 /* --- GRID ------------------------------------------------------------------*/
@@ -90,54 +94,18 @@ li {
 /* --- BUTTONS ---------------------------------------------------------------*/
 
 
-
-/* Fill type buttons*/
-
-#random_colors {
-  font-family: 'Roboto', sans-serif;
-  background-color: #FAFAFA;
-  border: none;
-  margin: .3em;
-}
-
-#random_colors:hover,
-#random_colors:focus,
-#random_colors:active {
-  outline: none;
-}
-
-
-#monochrome {
-  font-family: 'Roboto', sans-serif;
-  background-color: #FAFAFA;
-  border: none;
-  margin: .3em;
-}
-
-#monochrome:hover,
-#monochrome:focus {
-  outline: none;
-}
-
-
-
 /* Size input */
 
 #height,
 #width {
   width: 5.2em;
-  margin: .3em;
 }
 
 /* Options buttons */
 
 #new_grid,
 #clear {
-  font-family: 'Roboto', sans-serif;
-  background-color: #FAFAFA;
-  border: none;
   width: 5.5em;
-  margin: .3em 0;
 }
 
 
@@ -145,14 +113,12 @@ li {
 #new_grid:focus {
   background-color: #4CAF50;
   color: #FAFAFA;
-  outline: none;
 }
 
 #clear:hover,
 #clear:focus {
   background-color: #F44336;
   color: #FAFAFA;
-  outline: none;
 }
 
 #new_grid:active {
