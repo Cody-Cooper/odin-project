@@ -129,3 +129,8 @@ li {
 #clear:active {
   background-color: #D32F2F;
 }
+
+#shooting_star,
+#no_outline {
+  color: #9E9E9E;
+}

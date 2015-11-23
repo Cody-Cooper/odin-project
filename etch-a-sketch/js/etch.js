@@ -77,6 +77,27 @@ $(document).ready(function() {
           'opacity' : opacity += 0.05 // darkens square each time user hovers
         });
       });
+    } else if (fillType === 3) { // If shooting star is chosen
+
+      $('li').css({
+        'background-color' : '#1A237E',
+        'border' : '1px solid #FAFAFA',
+        'opacity' : 1
+      });
+
+      $('li').hover(function() {
+        $(this).css({
+          'background-color' : '#FFF176',
+          'border' : '1px solid #FAFAFA',
+        });
+      });
+
+      // Fades to default color when mouse leaves the square
+      $('li').mouseout(function() {
+        // Animates background color using jQuery UI core effects
+        $(this).animate({ backgroundColor: "rgb(26, 35, 126)" })
+      });
+
     } else {
       alert('Nice try!');
     }
@@ -157,6 +178,11 @@ $(document).ready(function() {
     };
   };
 
+
+// --- NO OUTLINE BUTTON -------------------------------------------------------
+
+  // Need to work on this.
+
 // --- RANDOM COLORS BUTTON ----------------------------------------------------
 
   $('#random_colors').hover(function() {
@@ -185,9 +211,7 @@ $(document).ready(function() {
      // Clears all previous colors on grid if the user changed fill types.
      if (fillType != 1) {
        clearGrid();
-     };
-
-     if (fillType === 2) {
+     } else if (fillType === 2) {
        $('li').css('opacity', 1);
      };
 
@@ -228,6 +252,39 @@ $(document).ready(function() {
 
   // Returns button to default color after the user's mouse leaves the button.
   $('#monochrome').mouseout(function() {
+    $(this).css('background-color', '#FAFAFA');
+    $(this).css('color', '');
+  });
+
+// --- SHOOTING STAR BUTTON ----------------------------------------------------
+
+  // Currently disabled
+
+  // Applies color to the button when user hovers over it.
+  $('#shooting_star').hover(function() {
+    $(this).css('background-color', '#303F9F');
+    $(this).css('color', '#FFF176');
+  });
+
+  // Tints button when the user clicks the button.
+  $('#shooting_star').mousedown(function() {
+    $(this).css('background-color', '#1A237E');
+    // Clears all previous colors on grid if the user changed fill types.
+    if (fillType != 3) {
+      clearGrid();
+    };
+    fillType = 3;
+    console.log('New fill type: ' + fillType);
+    sketch();
+  });
+
+  // Un-tints button when user releases mouse.
+  $('#shooting_star').mouseup(function() {
+    $(this).css('background-color', '#303F9F');
+  });
+
+  // Returns button to default color after the user's mouse leaves the button.
+  $('#shooting_star').mouseout(function() {
     $(this).css('background-color', '#FAFAFA');
     $(this).css('color', '');
   });

@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/etch.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
     <title>jQuery Etch-A-Sketch</title>
   </head>
   <body class="default_color">
@@ -23,6 +24,7 @@
       <div id="fill_type" class="flex column_nowrap">
         <button id="random_colors" class="no_outline default_color tblr_margin no_border">RANDOM COLORS</button>
         <button id="monochrome" class="no_outline default_color tblr_margin no_border">MONOCHROME</button>
+        <button id="shooting_star" class="no_outline default_color tblr_margin no_border" disabled>SHOOTING STAR</button>
       </div>
       <div id="options_header">
         <hr class="tb_margin">
@@ -37,6 +39,9 @@
         <div id="size_buttons" class="flex center_align">
           <button onclick="newGrid()" id="new_grid" class="no_outline default_color tb_margin no_border">NEW GRID</button>
           <button onclick="clearGrid()" id="clear" class="no_outline default_color tb_margin no_border">CLEAR</button>
+        </div>
+        <div id="no_outline_button" class="flex column_nowrap">
+          <button id="no_outline" class="no_outline default_color tblr_margin no_border" disabled>NO OUTLINE</button>
         </div>
       </div>
     </div>
