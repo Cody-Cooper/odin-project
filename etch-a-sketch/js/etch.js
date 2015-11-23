@@ -7,6 +7,8 @@ $(document).ready(function() {
 
   fillType = 1;
 
+  gridOutline = true;
+
   randomColorString = '';
   randomTintedString = '';
 
@@ -22,19 +24,18 @@ $(document).ready(function() {
  // Generates an RGB string using generateColor() to supply random numbers.
   rgbGenerator = function(tint) {
     if (!tint) {
-      var r = generateColor();
-      var g = generateColor();
-      var b = generateColor();
-
-      rgbString = 'rgb(' + r + ', ' +
-      g + ', ' + b + ')';
+      // returns a string containing an RGB color string
+      // ex: rgb(255, 255, 255)
+      rgbString = 'rgb(' + generateColor() + ', ' +
+      generateColor() + ', ' + generateColor() + ')';
 
       return rgbString;
     } else {
+      // Saves colors to a variable, allowing color tinting.
       var r = generateColor();
       var g = generateColor();
       var b = generateColor();
-        // Darkens the colors
+      // Darkens the colors
       var rt = Math.round(r * 0.75);
       var gt = Math.round(g * 0.75);
       var bt = Math.round(b * 0.75);
@@ -45,6 +46,7 @@ $(document).ready(function() {
       tintedString = 'rgb(' + rt + ', ' +
       gt + ', ' + bt + ')';
 
+      // Returns an array containing both strings.
       return [rgbString, tintedString];
     };
   };
@@ -55,11 +57,25 @@ $(document).ready(function() {
   sketch = function() {
     if (fillType === 1) { // If Random Colors is chosen
       $('li').hover(function() {
-        $(this).css('background-color', rgbGenerator(false));
+        $(this).css({
+          'background-color' : rgbGenerator(false),
+          'border' : '1px solid #FAFAFA'
+        });
       });
     } else if (fillType === 2) { // If Monochrome is chosen
+      // Sets base opacity
+      $('li').css('opacity', 0.1);
+
       $('li').hover(function() {
-        $(this).css('background-color', '#757575');
+        // Assigns the current opacity value of li elements to the
+        // opacity variable
+        var opacity = +$(this).css("opacity");
+
+        $(this).css({
+          'background-color' : '#757575',
+          'border' : '1px solid #FAFAFA',
+          'opacity' : opacity += 0.05 // darkens square each time user hovers
+        });
       });
     } else {
       alert('Nice try!');
@@ -126,6 +142,19 @@ $(document).ready(function() {
 
   clearGrid = function() {
     $('li').css('background-color', '#FAFAFA');
+    var opacity = +$('li').css("opacity");
+
+    if (fillType === 2) {
+      $('li').css('opacity', 0.1);
+    } else {
+      $('li').css('opacity', 1);
+    };
+
+    if (gridOutline) {
+      $('li').css('border', '1px solid black');
+    } else {
+      $('li').css('border', '1px solid #FAFAFA');
+    };
   };
 
 // --- RANDOM COLORS BUTTON ----------------------------------------------------
@@ -157,6 +186,11 @@ $(document).ready(function() {
      if (fillType != 1) {
        clearGrid();
      };
+
+     if (fillType === 2) {
+       $('li').css('opacity', 1);
+     };
+
      fillType = 1;
      console.log('New fill type: ' + fillType);
      sketch();
