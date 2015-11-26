@@ -4,6 +4,8 @@ user_input = Integer(gets.chomp)
 multiple = 1
 answer = 0
 
+# Loops from 1 to user_input. If the number is a multiple of three or five,
+# it adds the number the the answer variable.
 until multiple == user_input
 	if multiple % 3 == 0 || multiple % 5 == 0
 		answer += multiple

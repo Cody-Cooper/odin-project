@@ -165,12 +165,14 @@ $(document).ready(function() {
     $('li').css('background-color', '#FAFAFA');
     var opacity = +$('li').css("opacity");
 
+
+    // Sets opacity back to default if monochrome is selected.
     if (fillType === 2) {
       $('li').css('opacity', 0.1);
     } else {
       $('li').css('opacity', 1);
     };
-
+    
     if (gridOutline) {
       $('li').css('border', '1px solid black');
     } else {
