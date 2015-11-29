@@ -1,14 +1,14 @@
-var userInput = 20;
-var answer = userInput;
-var i = 2;
-while(i<answer) {
-	while(answer%i === 0) {
-		(function(tempAnswer) {
-			document.write(answer + " can be divided by " + i + " which gives us " + tempAnswer + "<br><br>");
-
-			answer = tempAnswer;
-		})(answer / i)
+function findMaxPrimeNumber() {
+	userInput = document.getElementById("input3").value;
+	answer = userInput;
+	var i = 2;
+	while(i<answer) {
+		while(answer%i === 0) {
+			(function(tempAnswer) {
+				answer = tempAnswer;
+			})(answer / i)
+		}
+		i++;
 	}
-	i++;
+	document.getElementById("output3").innerHTML = answer;
 }
-document.write(answer + " is the biggest prime factor for " + userInput + ".");
