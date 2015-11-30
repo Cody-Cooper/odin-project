@@ -1,0 +1,155 @@
+body {
+  font-family: Arial;
+}
+
+.center {
+  text-align: center;
+}
+
+a,
+a:visited {
+  color: #666;
+  font-size: 13px;
+}
+
+/* HEADER */
+
+#header {
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.nav {
+  list-style: none;
+  float: right;
+  margin-right: 25px;
+}
+
+.nav li {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 15px;
+}
+
+.nav a,
+.nav #name {
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.nav #name {
+  color: #acacac;
+}
+
+.nav a:hover,
+.foot_left a:hover,
+.foot_right a:hover {
+  text-decoration: underline;
+}
+
+/*MAIN LOGO*/
+
+#logo {
+  height: 92px;
+  width: 272px;
+  padding-top: 109px;
+}
+
+#logo_wrap {
+  height: 233px;
+  margin-top: 89px;
+}
+
+/*SEARCH BAR*/
+
+#search_container {
+  position: relative;
+  padding: 0;
+  padding-bottom: 20px;
+  margin: auto;
+  height: 38px;
+  width: 638px;
+}
+
+#searchbar {
+  height: 38px;
+  width: 543px;
+  margin: 0;
+  padding-left: 30px;
+  border: 1px solid #e4e4e4;
+}
+
+#speach {
+  position: absolute;
+  right: 35px;
+  top: 2px;
+  height: 39px;
+  width: 37px;
+}
+
+/*BUTTONS*/
+
+.search_button {
+  margin-top: 20px;
+  height: 36px;
+  line-height: 27px;
+  background-color: #f2f2f2;
+  border: 1px solid #f2f2f2;
+  border-radius: 2px;
+  color: #757575;
+  font-weight: bold;
+  margin: 11px 4px;
+  min-width: 54px;
+  padding: 0 16px;
+}
+
+/*FOOTER */
+
+#footer {
+  position: fixed;
+  display: block;
+  height: 40px;
+  width: 100%;
+  bottom: 0;
+  background: #f2f2f2;
+  border-top: 1px solid #e4e4e4;
+  line-height: 40px;
+}
+
+.foot {
+  list-style: none;
+  margin: 0;
+}
+
+.foot li {
+  text-decoration: none;
+  display: inline-block;
+  padding-left: 27px;
+}
+
+.foot a {
+  text-decoration: none;
+}
+
+.foot a:hover {
+  text-decoration: underline;
+}
+
+.left {
+  float: left;
+  white-space: nowrap;
+  margin-left: -30px;
+}
+
+.margin_delete {
+  margin: 0;
+}
+
+.right {
+  float: right;
+  white-space: nowrap;
+  margin-right: 30px;
+}
