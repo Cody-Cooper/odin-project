@@ -10,7 +10,6 @@ def find_leap_years(start, ending)
       0 and start % 400 == 0))
       puts start
     end
-
     start += 1
   end
 end
