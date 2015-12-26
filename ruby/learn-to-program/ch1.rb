@@ -6,7 +6,6 @@ minutes_in_a_decade = ((60 * 24) * 365) * 10
 
 puts "There are #{minutes_in_a_decade} minutes in a decade."
 
-
 puts "How old are you?"
 age = gets.chomp
 
