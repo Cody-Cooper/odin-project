@@ -13,7 +13,7 @@ $(document).ready(function() {
   randomTintedString = '';
 
 
-// --- RANDOM COLORS -----------------------------------------------------------
+// --- RANDOM COLORS ----------------------------------------------------------
 
   // Generates a random rounded number between 0-255 for the rgb color codes
   generateColor = function() {
